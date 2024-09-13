@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  db_projetos:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'projetosDB'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'admin'
+      MYSQL_ROOT_PASSWORD: 'admin123'
+    ports:
+      - '3310:3306'
+    expose:
+      - '3310'
+    volumes:
+      - "C:/Users/User1/Documents/Douglas/Algoritimos/BancoDeDados/Docker/MySqlDbProjetos:/var/lib/mysql"
+    networks:
+      - docker-network
+networks:
+  docker-network:
+    driver: bridge
